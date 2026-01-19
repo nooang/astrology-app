@@ -1,42 +1,112 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
+}
+
+h2 {
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+textarea {
+  height: 100px;
+  resize: none;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+button {
+  width: 100%;
+  padding: 15px;
+  background-color: #6200ee;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #aaa;
+}
+
+.main-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.fortune-form {
+  background: #312f33;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  text-align: left;
+  
+}
+
+.input-panel {
+  padding: 40px;
+  background-color: #1e1e2e;
+  color: white;
+  border-right: 1px solid #444;
+  width: 350px;
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+.result-panel {
+  display: flex;
+  flex-direction: column;
+  background-color: #1c1c1c;
+  width: 600px;
+}
+
+.tabs {
+  display: flex;
+  padding: 10px;
+  background: #898989;
+  gap: 5px;
+  overflow-x: auto;
+}
+
+.tabs button {
+  padding: 8px 20px;
+  border: none;
+  background: #ddd;
+  cursor: pointer;
+}
+
+.tabs button.active-tab {
+  background: #6200ee;
+  color: white;
+}
+
+.display-area {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+  position: relative;
+}
+
+.animate-reveal {
+  animation: revealDown 1.2s ease-out forwards;
+  mask-image: linear-gradient(to bottom, black var(--mask-p, 0%), transparent var(--mask-p, 0%));
+}
+
+@keyframes revealDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 0%);
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    -webkit-mask-image: linear-gradient(to bottom, black 100%, transparent 100%);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.markdown-content {
+  line-height: 1.8;
+  font-size: 1.1rem;
 }

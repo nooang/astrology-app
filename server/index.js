@@ -48,13 +48,13 @@ ${tone === "" ? "" : `- **${tone}**인 관점에서 예언한다.`}`;
 app.get('/', (req, res) => {
     res.send('Astrology App Server is running');
 });
-
+// 모델들: gemini-2.5-flash-lite, gemini-2.5-flash, gemini-3-flash-preview, gemini-3-pro-preview
 app.post('/api/fortune', async (req, res) => {
     try {
         const userData = req.body;
         const prompt = generatePrompt(userData);
         const response = await ai.models.generateContent({
-            model: "gemini-2.5-flash-lite",
+            model: "gemini-3-flash-preview",
             contents: prompt,
         });
         const text = response.text;

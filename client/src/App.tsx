@@ -55,7 +55,7 @@ function App() {
     setIsLoading(true);
 
     try {
-      const response = await axios.post<FortuneResponse>('http://localhost:3000/api/fortune', userInfo);
+      const response = await axios.post<FortuneResponse>('/api/fortune', userInfo);
       const newFortune: FortuneItem = {
         id: results.length + 1,
         type: userInfo.fortuneType,

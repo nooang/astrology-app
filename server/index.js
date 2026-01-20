@@ -17,9 +17,10 @@ app.use(express.json());
  */
 const generatePrompt = (date) => {
     const { birthDate, birthTime, birthPlace, gender, fortuneType, tone, customQuestion } = date;
+    const today = new Date().toLocaleDateString();
 
     let prompt = `너는 20년 경력의 전문 점술가야.
-다음 사용자 정보를 바탕으로 2분 안으로 읽을 수 있는 간단 요약 운세를 알려줘.
+다음 사용자 정보와 ${today}의 날짜를 바탕으로 2분 안으로 읽을 수 있는 간단 요약 운세를 알려줘.
 
 [사용자 정보]
 - 생년월일: ${birthDate}
